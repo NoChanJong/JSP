@@ -1,0 +1,87 @@
+package com.lec.member.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.sql.DataSource;
+
+import com.lec.db.JDBCUtility;
+import com.lec.member.vo.Member;
+
+public class MemberDAO {
+
+	private MemberDAO() {}
+	private static MemberDAO memberDAO;
+	public static MemberDAO getInstance() {
+		if(memberDAO == null) memberDAO = new MemberDAO();
+		return memberDAO;
+	}
+	
+	Connection conn = null;
+	DataSource ds = null;
+	
+	public void setConnection(Connection conn) {
+		this.conn = conn;
+	}
+	
+	public int insertMember(Member member) {
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "insert into member(id, pw, name, age, gender, email) "
+					+ "values(?, ?, ?, ?, ?, ?)";
+		
+		int insertCount = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			pstmt.setString(1, member.getId());
+			pstmt.setString(2, member.getPw());
+			pstmt.setString(3, member.getName());
+			pstmt.setInt(4, member.getAge());
+			pstmt.setString(5, member.getGender());
+			pstmt.setString(6, member.getEmail());
+			insertCount = pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("회원 등록 실패" + e.getMessage());
+		} finally {
+			JDBCUtility.close(null, pstmt, rs);
+		}
+		
+		return insertCount;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

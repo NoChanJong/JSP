@@ -1,0 +1,5 @@
+package com.lec.member.service;
+
+public class MemberListService {
+
+}

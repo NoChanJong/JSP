@@ -1,0 +1,17 @@
+package com.lec.board.action;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.lec.board.vo.ActionForward;
+
+public class BoardReplyAction implements Action {
+
+	@Override
+	public ActionForward excute(HttpServletRequest req, HttpServletResponse res) {
+		System.out.println("==> 댓글쓰기");
+		
+		return null;
+	}
+
+}

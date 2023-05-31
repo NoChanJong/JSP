@@ -1,0 +1,26 @@
+package com.lec.board.vo;
+
+public class ActionForward {
+
+	private boolean isRedirec = false;
+	private String path = null;
+	
+	public boolean isRedirec() {
+		return isRedirec;
+	}
+	
+	public void setRedirec(boolean isRedirec) {
+		this.isRedirec = isRedirec;
+	}
+	
+	public String getPath() {
+		return path;
+	}
+	
+	public void setPath(String path) {
+		this.path = path;
+	}
+	
+	
+	
+}

@@ -1,0 +1,5 @@
+package com.lec.member.dao;
+
+public class MemberDAO {
+
+}

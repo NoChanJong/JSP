@@ -1,0 +1,11 @@
+package com.lec.board.service;
+
+public class BoardDetailService {
+
+	public void getBoard(int bno) {
+		
+		
+		
+	}
+	
+}

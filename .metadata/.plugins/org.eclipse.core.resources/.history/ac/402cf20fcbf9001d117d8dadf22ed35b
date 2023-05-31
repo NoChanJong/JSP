@@ -1,0 +1,24 @@
+package com.lec.board.action;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.lec.board.vo.ActionForward;
+
+public class BoardListAction implements Action {
+
+	@Override
+	public ActionForward excute(HttpServletRequest req, HttpServletResponse res) {
+		
+		ActionForward forward = null;
+		forward.setPath("/board/board_List.jsp");
+		
+		
+		
+		
+		
+		
+		return forward;
+	}
+	
+}

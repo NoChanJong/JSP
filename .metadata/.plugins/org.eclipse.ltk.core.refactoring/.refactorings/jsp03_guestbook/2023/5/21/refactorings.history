@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;JDBCUtil.java&apos; to &apos;jsp08_member/src/main/java/com.lec.member.jdbc&apos;&#x0D;&#x0A;- Original project: &apos;jsp03_guestbook&apos;&#x0D;&#x0A;- Destination element: &apos;jsp08_member/src/main/java/com.lec.member.jdbc&apos;&#x0D;&#x0A;- Original element: &apos;com.lec.web.jdbc.JDBCUtil.java&apos;" description="Copy compilation unit" destination="=jsp08_member/src\/main\/java&lt;com.lec.member.jdbc" element1="/src\/main\/java&lt;com.lec.web.jdbc{JDBCUtil.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1684737017884" units="1" version="1.0"/>
+</session>

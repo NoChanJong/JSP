@@ -1,0 +1,8 @@
+package com.lec.board.vo;
+
+public class ActionFoward {
+
+	private boolean isRedirec = false;
+	private String path = null;
+	
+}

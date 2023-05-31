@@ -1,0 +1,18 @@
+package com.lec.servlet;
+
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+
+public class DBCPInitListener implements ServletContextListener {
+	
+	@Override
+	public void contextInitialized(ServletContextEvent sce) {
+		// contextInitialized메서드는 web.xml의 <context-param>태그의 정보를 읽어오는 메서드
+	}
+	
+	@Override
+	public void contextDestroyed(ServletContextEvent sce) {
+		// dummy
+	}
+	
+}

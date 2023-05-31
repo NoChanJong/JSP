@@ -1,0 +1,60 @@
+package com.lec.board.dao;
+
+import java.sql.Connection;
+
+import javax.sql.DataSource;
+
+public class BoardDAO {
+
+	private BoardDAO() {}
+	private static BoardDAO boardDAO;
+	public static BoardDAO getInstance() { 
+		if(boardDAO == null) boardDAO = new BoardDAO();
+		return boardDAO;
+	}
+	
+	Connection conn = null;
+	DataSource ds = null;
+	
+	// DB커넥션
+	// 글쓰기
+	// 글갯수구하기
+	// 글목록조회하기
+	// 글조회수증가하기
+	// 글상세보기
+	// 글작성자확인
+	// 글수정하기
+	// 글삭제하기
+	// 댓글쓰기
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+package com.lec.board.action;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.lec.board.service.BoardDeleteService;
+import com.lec.board.vo.ActionForward;
+
+public class BoardDeleteAction implements Action {
+
+	@Override
+	public ActionForward excute(HttpServletRequest req, HttpServletResponse res) {
+		
+		ActionForward forward = null;
+		boolean isWriter = false;
+		boolean isDeleteSuccess = false;
+		
+		int bno = Integer.parseInt(req.getParameter("bno"));
+		
+		BoardDeleteService boardDeleteService = new BoardDeleteService();
+		boardDeleteService.isBoardWriter(bno, req.getParameter("pass"));
+		return forward;
+	}
+	
+}

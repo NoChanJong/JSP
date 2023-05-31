@@ -1,0 +1,66 @@
+package com.lec.board.service;
+
+import java.sql.Connection;
+
+import com.lec.board.dao.BoardDAO;
+import com.lec.db.JDBCUtility;
+
+public class BoardListService {
+
+	public int getListCount() {
+		
+		// 총 레코드 건수 : select count(*) from board
+		int listCount = 0;
+		
+		Connection conn = JDBCUtility.getConnection();
+		BoardDAO boardDAO = BoardDAO.getInstance();
+		boardDAO.setConnection(conn);
+		listCount = boardDAO.selectListCount();
+		
+		return listCount;
+	}
+	
+	private void getBoardList() {
+		
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

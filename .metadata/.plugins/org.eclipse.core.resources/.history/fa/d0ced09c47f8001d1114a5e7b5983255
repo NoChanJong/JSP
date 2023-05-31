@@ -1,0 +1,3 @@
+hello=com.lec.handler.HelloHandler
+# board=com.lec.handler.BoardHandler
+# member=com.lec.handler.MemberHandler

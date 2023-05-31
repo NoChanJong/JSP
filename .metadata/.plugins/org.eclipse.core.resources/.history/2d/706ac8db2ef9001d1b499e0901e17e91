@@ -1,0 +1,5 @@
+package com.lec.board.vo;
+
+public class ActionFoward {
+
+}

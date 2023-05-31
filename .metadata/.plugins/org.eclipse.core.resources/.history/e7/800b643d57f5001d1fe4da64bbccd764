@@ -1,0 +1,12 @@
+package com.lec.web.service;
+
+public class WriteMessageService2 {
+	
+	// singleton
+	private WriteMessageService2() {}
+	private static WriteMessageService2 instance = new WriteMessageService2();
+	public static WriteMessageService2 getInstance() { return instance; }
+	
+	
+	
+}

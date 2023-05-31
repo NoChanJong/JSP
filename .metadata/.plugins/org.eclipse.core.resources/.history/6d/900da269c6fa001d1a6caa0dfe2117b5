@@ -1,0 +1,8 @@
+package com.lec.member.action;
+
+public class Snippet {
+	public static void main(String[] args) {
+		MemberDetailAction
+	}
+}
+

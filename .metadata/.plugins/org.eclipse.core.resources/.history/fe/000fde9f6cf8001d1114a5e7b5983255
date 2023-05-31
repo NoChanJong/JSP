@@ -1,0 +1,5 @@
+package com.lec.member.dto;
+
+public class Member {
+
+}

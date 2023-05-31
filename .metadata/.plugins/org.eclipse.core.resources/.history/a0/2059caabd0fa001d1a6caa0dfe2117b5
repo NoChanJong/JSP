@@ -1,0 +1,21 @@
+package com.lec.member.action;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.lec.member.vo.ActionForward;
+
+public class MemberDetailAction implements Action {
+
+	@Override
+	public ActionForward excute(HttpServletRequest req, HttpServletResponse res) {
+		
+		String id = req.getParameter("id");
+		
+		MemberDetailService
+		
+		
+		return null;
+	}
+
+}

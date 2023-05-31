@@ -1,0 +1,15 @@
+package com.lec.board.service;
+
+import com.lec.board.vo.BoardBean;
+
+public class BoardWriteService {
+
+	public boolean registerBoard(BoardBean board) {
+		
+		boolean isWriteSuccess = false;
+		
+		System.out.println(board.toString());
+		
+		return isWriteSuccess;
+	}
+}

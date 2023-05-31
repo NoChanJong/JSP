@@ -1,0 +1,25 @@
+package com.lec.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+
+import com.lec.command.CommandHandler;
+
+public class ControllerUsingURI extends HttpServlet {
+	
+	private Map<String, CommandHandler> handler = new HashMap<>();
+	
+	@Override
+	public void init() throws ServletException {
+		String controllerFile = getInitParameter("controllerURI");
+		String controllerFilePath = getServletContext().getRealPath(controllerFile);
+		System.out.println(controllerFile);
+		System.out.println(controllerFilePath);
+		Properties prop = new Properties();
+		
+	}
+}

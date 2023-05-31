@@ -1,0 +1,9 @@
+package com.lec.board.service;
+
+public class BoardModifyService {
+
+	public boolean isBoardWriter(int bno, String pass) {
+		return false;
+	}
+
+}

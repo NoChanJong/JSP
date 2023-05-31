@@ -1,0 +1,7 @@
+package com.lec.web.exception;
+
+public class ServiceException2 extends RuntimeException {
+	
+	public ServiceException2(String message) { super(message); }
+	public ServiceException2(String message, Exception e) { super(message, e); }
+}

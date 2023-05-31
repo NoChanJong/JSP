@@ -1,0 +1,22 @@
+package com.lec.board.action;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.lec.board.vo.ActionForward;
+
+public class BoardWriteAction implements Action {
+
+	@Override
+	public ActionForward excute(HttpServletRequest req, HttpServletResponse res) {
+		// System.out.println("====> 글등록하기");
+		ActionForward forward = null;
+		
+		System.out.println("==> 글 등록이 성공했습니다.");
+		
+		forward.setPath("/");
+		
+		return forward;
+	}
+
+}

@@ -1,0 +1,22 @@
+package com.lec.board.action;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.lec.board.service.BoardDetailService;
+import com.lec.board.vo.ActionForward;
+
+public class BoardDetailAction implements Action {
+
+	@Override
+	public ActionForward excute(HttpServletRequest req, HttpServletResponse res) {
+		// 글 상세보기
+		int bno = Integer.parseInt(req.getParameter("bno"));
+		
+		BoardDetailService boardDetailService = new BoardDetailService();
+		boardDetailService.getBoard(bno);
+		
+		return null;
+	}
+	
+}

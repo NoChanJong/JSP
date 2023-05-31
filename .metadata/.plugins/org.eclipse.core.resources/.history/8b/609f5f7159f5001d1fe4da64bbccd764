@@ -1,0 +1,80 @@
+package com.lec.web.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import com.lec.web.model.Message2;
+
+public class MessageDAO2 {
+
+	// singleton
+	private MessageDAO2() {}
+	private static MessageDAO2 messageDAO2 = new MessageDAO2();
+	public static MessageDAO2 getInstance() { return messageDAO2; }
+	
+	public List<Message2> selectList(Connection conn, int start, int end) {
+		
+		List<Message2> messageList = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from board "
+				+ " order by message_id desc limit ?, ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
+			rs = pstmt.executeQuery();
+			
+			do {
+				messageList.add(makeMessage(rs));
+			} while(rs.next());
+			
+			return Collections.emptyList();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return messageList;
+	}
+
+	public Message2 makeMessage(ResultSet rs) throws SQLException {
+		Message2 message2 = new Message2();
+		message2.setId(rs.getInt("message_id"));
+		message2.setGuestName(rs.getString("guest_name"));
+		message2.setPassword(rs.getString("password"));
+		message2.setMessage(rs.getString("message"));
+		return message2;
+	}
+
+	public int insert(Connection conn, Message2 message2) {
+		
+		PreparedStatement pstmt = null;
+		String sql = "insert into board(guest_name, password, message)"
+				+ " values(?,?,?)";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, message2.getGuestName());
+			pstmt.setString(2, message2.getPassword());
+			pstmt.setString(3, message2.getMessage());
+			return pstmt.executeQuery();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}
+
+
+
+
+
+
+
+

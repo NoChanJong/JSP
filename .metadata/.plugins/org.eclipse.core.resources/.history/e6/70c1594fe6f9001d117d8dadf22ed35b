@@ -1,0 +1,76 @@
+package com.lec.board.action;
+
+import java.io.IOException;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.lec.board.service.BoardModifyService;
+import com.lec.board.vo.ActionForward;
+import com.lec.board.vo.BoardBean;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+public class BoardModifyAction implements Action {
+
+	@Override
+	public ActionForward excute(HttpServletRequest req, HttpServletResponse res) {
+		
+		ActionForward forward = new ActionForward();
+		BoardBean board = null;
+		
+		String savaFolder = "D:/ChanJong/ChanJong//temp/m_upload";
+		int fileSize = 1024*1024*5;
+		
+		ServletContext sct = req.getServletContext();
+		boolean isModifySuccess = false;
+		int bno = Integer.parseInt(req.getParameter("bno"));
+		try {
+			MultipartRequest multi = new MultipartRequest(req, savaFolder, fileSize, "utf-8",
+						new DefaultFileRenamePolicy());
+			String pass = multi.getParameter("pass");
+			board = new BoardBean();
+			BoardModifyService boardModifyService = new BoardModifyService();
+			boolean isWriter = boardModifyService.isBoardWriter(bno, pass);
+			
+			
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return forward;
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

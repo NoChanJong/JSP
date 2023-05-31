@@ -1,0 +1,62 @@
+package com.lec.board.action;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.lec.board.service.BoardReplyService;
+import com.lec.board.vo.ActionForward;
+import com.lec.board.vo.BoardBean;
+
+public class BoardReplyAction implements Action {
+
+	@Override
+	public ActionForward excute(HttpServletRequest req, HttpServletResponse res) {
+		
+		ActionForward forward = null;
+		BoardBean board = new BoardBean();
+		
+		int bno = Integer.parseInt(req.getParameter("bno"));
+		board.setBno(bno);
+		board.setWriter(req.getParameter("writer"));
+		board.setPass(req.getParameter("pass"));
+		board.setSubject(req.getParameter("subject"));
+		board.setContent(req.getParameter("content"));
+		board.setRe_ref(bno);
+		board.setRe_lev(0);
+		board.setRe_seq(0);
+		
+		// 댓글쓰기로직 담당할 서비스
+		BoardReplyService boardReplyService = new BoardReplyService();
+		boolean isReplySuccess = boardReplyService.replyBoard(board);
+		
+		
+		return forward;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

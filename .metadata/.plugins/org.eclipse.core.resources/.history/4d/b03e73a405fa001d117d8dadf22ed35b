@@ -1,0 +1,62 @@
+package com.lec.member.action;
+
+import java.io.PrintWriter;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.lec.member.service.MemberInsertService;
+import com.lec.member.vo.ActionForward;
+import com.lec.member.vo.Member;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+public class MemberInsertAction implements Action{
+
+	@Override
+	public ActionForward excute(HttpServletRequest req, HttpServletResponse res) {
+		
+		ActionForward forward = null;
+		Member member = null;
+		String realFolder = "";
+		String savaFolder = "D:/ChanJong/ChanJong/temp/m_upload";
+		int filesize = 1024*1024*5;
+		
+		ServletContext context = req.getServletContext();
+		realFolder = context.getRealPath("/memberUpload");
+		MultipartRequest multi = null;
+		
+		try {
+			multi = new MultipartRequest(req, savaFolder, filesize, "utf-8",
+					new DefaultFileRenamePolicy());
+			
+			member = new Member();
+			member.setName(multi.getParameter("name"));
+			member.setAge(Integer.parseInt(multi.getParameter("age")));
+			member.setGender(multi.getParameter("gender"));
+			member.setEmail(multi.getParameter("email"));
+			
+			MemberInsertService insertService = new MemberInsertService();
+			boolean isInsertSuccess = insertService.registerMember(member);
+			
+			if(isInsertSuccess) {
+				forward = new ActionForward();
+				forward.setRedirect(true);
+				forward.setPath("memberList.co");
+			} else {
+				res.setContentType("text/html; charset=utf-8");
+				PrintWriter out = res.getWriter();
+				out.println("<script>");
+				out.println("	alert('회원등록이 실패했습니다.')");
+				out.println("	history.back()");
+				out.println("</script>");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return forward;
+	}
+
+	
+}

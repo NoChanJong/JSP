@@ -1,0 +1,68 @@
+package com.lec.member.servlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/modify")
+public class ModifyMemberServlet extends HttpServlet {
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) 
+			throws ServletException, IOException {
+		process(req, res);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) 
+			throws ServletException, IOException {
+		process(req, res);
+	}
+
+	private void process(HttpServletRequest req, HttpServletResponse res) 
+			throws ServletException, IOException {
+		
+		req.setCharacterEncoding("utf-8");
+		String id = req.getParameter("id");
+		String name = req.getParameter("name");
+		String pw = req.getParameter("pw");
+		String ssn = req.getParameter("ssn");
+		String gender = req.getParameter("gender");
+		int mileage = Integer.parseInt(req.getParameter("mileage"));
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
